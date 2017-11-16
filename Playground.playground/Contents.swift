@@ -1,15 +1,20 @@
 import Foundation
 
-struct Atbash {
+struct AtbashCipher {
     private static var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
                                    "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
                                    "u", "v", "w", "x", "y", "z"]
 
     static func encrypt(_ text: String) -> String {
         var output = ""
-        for character in text.characters {
-            output += substitute(String(character))
+        
+        text.forEach {
+            output += substitute(String($0))
         }
+
+//        for character in text.characters {
+//            output += substitute(String(character))
+//        }
         
         return output
     }
@@ -32,5 +37,5 @@ struct Atbash {
 
 }
 
-print(Atbash.encrypt("biblia"))
-print(Atbash.decrypt("yryorz"))
+print(AtbashCipher.encrypt("biblia"))
+print(AtbashCipher.decrypt("yryorz"))
